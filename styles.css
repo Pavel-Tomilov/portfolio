@@ -56,9 +56,10 @@ section {
     text-align: center;
 }
 
-#projects .project-list {
+#projects  {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
