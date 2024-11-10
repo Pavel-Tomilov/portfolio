@@ -1,0 +1,64 @@
+.night-theme-btn {
+    position:fixed;
+    right: 15px;
+    top: 15px;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: rgb(220, 235, 11, .5);
+    transition: filter .4s, background-color .4s;
+    cursor: pointer;
+}
+
+.night-theme-btn:hover {
+    filter: brightness(120%);
+}
+
+.night-theme-btn:active {
+    filter: brightness(80%);
+}
+
+.night-theme-btn__icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+opacity: 0;
+transition: opacity .4s;
+}
+
+.night-theme-btn__icon circle,
+.night-theme-btn__icon path {
+    fill: rgba(26, 25, 25, .5);
+}
+
+.night-theme-btn__icon-moon {
+    opacity: 1;
+}
+
+body{
+    transition: color .4s, background-color .4s;
+}
+
+body.night-theme {
+    background-color: black;
+    color: white;
+   
+}
+
+body.night-theme .night-theme-btn {
+    background-color: rgba(223, 211, 80, .5);
+}
+
+body.night-theme .night-theme-btn__icon-moon{
+    opacity: 0;
+}
+
+body.night-theme .night-theme-btn__icon-sun {
+    opacity: 1;
+}
