@@ -62,3 +62,7 @@ body.night-theme .night-theme-btn__icon-moon{
 body.night-theme .night-theme-btn__icon-sun {
     opacity: 1;
 }
+
+.project {
+    color: black;
+}
