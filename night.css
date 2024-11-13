@@ -51,6 +51,10 @@ body.night-theme {
    
 }
 
+body.night-theme .card {
+    background-color: #504c4c;
+}
+
 body.night-theme .night-theme-btn {
     background-color: rgba(223, 211, 80, .5);
 }
@@ -63,6 +67,4 @@ body.night-theme .night-theme-btn__icon-sun {
     opacity: 1;
 }
 
-.project {
-    color: black;
-}
+
