@@ -1,70 +1,136 @@
-.night-theme-btn {
-    position:fixed;
-    right: 15px;
-    top: 15px;
-    border: none;
-    outline: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    background-color: rgb(220, 235, 11, .5);
-    transition: filter .4s, background-color .4s;
-    cursor: pointer;
+
+
+.switch {
+	margin: auto;
+	position: fixed;
+top: 30px;
+right: 30px;
+
+}
+.switch__icon,
+.switch__input {
+	display: block;
 }
 
-.night-theme-btn:hover {
-    filter: brightness(120%);
+.switch__icon {
+	position: absolute;
+	top: 0.375em;
+	right: 0.375em;
+	width: 0.75em;
+	height: 0.75em;
+	transition:
+		opacity calc(var(--trans-dur) / 2),
+		transform calc(var(--trans-dur) / 2);
 }
 
-.night-theme-btn:active {
-    filter: brightness(80%);
+.switch__icon polyline {
+	transition: stroke-dashoffset calc(var(--trans-dur) / 2);
 }
 
-.night-theme-btn__icon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 40px;
-    height: 40px;
-    margin-left: -20px;
-    margin-top: -20px;
-opacity: 0;
-transition: opacity .4s;
+.switch__icon--light,
+.switch__icon--light polyline {
+	transition-delay: calc(var(--trans-dur) / 2);
+	transition-timing-function: var(--trans-timing-out);
 }
 
-.night-theme-btn__icon circle,
-.night-theme-btn__icon path {
-    fill: rgba(26, 25, 25, .5);
+.switch__icon--dark {
+	opacity: 0;
+	transform: translateX(-0.75em) rotate(30deg) scale(0.75);
+	transition-timing-function: var(--trans-timing-in);
 }
 
-.night-theme-btn__icon-moon {
-    opacity: 1;
+.switch__input {
+	background-color: hsl(210,90%,70%);
+	border-radius: 0.75em;
+	box-shadow:
+		0 0 0 0.125em hsla(var(--hue),90%,50%,0),
+		0.125em 0.125em 0.25em hsla(var(--hue),90%,10%,0.2);
+	outline: transparent;
+	position: relative;
+	width: 3em;
+	height: 1.5em;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	transition:
+		background-color var(--trans-dur) var(--trans-timing),
+		box-shadow 0.15s linear;
 }
 
-body{
-    transition: color .4s, background-color .4s;
+.switch__input:focus-visible {
+	box-shadow:
+		0 0 0 0.125em hsl(var(--hue),90%,50%),
+		0.125em 0.125em 0.25em hsla(var(--hue),90%,10%,0.2);
 }
 
-body.night-theme {
-    background-color: black;
-    color: rgb(128, 126, 126);
-   
+.switch__input:before,
+.switch__input:after {
+	content: "";
+	display: block;
+	position: absolute;
 }
 
-body.night-theme .card {
-    background-color: #504c4c;
+.switch__input:before {
+	background-color: hsl(50,90%,50%);
+	border-radius: inherit;
+	mask-image: linear-gradient(120deg,hsl(0,0%,0%) 20%,hsla(0,0%,0%,0) 80%);
+	-webkit-mask-image: linear-gradient(120deg,hsl(0,0%,0%) 20%,hsla(0,0%,0%,0) 80%);
+	inset: 0;
+	transition: background-color var(--trans-dur) var(--trans-timing);
 }
 
-body.night-theme .night-theme-btn {
-    background-color: rgba(223, 211, 80, .5);
+.switch__input:after {
+	background-color: hsl(0,0%,100%);
+	border-radius: 50%;
+	box-shadow: 0.05em 0.05em 0.05em hsla(var(--hue),90%,10%,0.1);
+	top: 0.125em;
+	left: 0.125em;
+	width: 1.25em;
+	height: 1.25em;
+	transition:
+		background-color var(--trans-dur) var(--trans-timing),
+		transform var(--trans-dur) var(--trans-timing);
+	z-index: 1;
 }
 
-body.night-theme .night-theme-btn__icon-moon{
-    opacity: 0;
+.switch__input:checked {
+	background-color: hsl(290,90%,40%);
 }
 
-body.night-theme .night-theme-btn__icon-sun {
-    opacity: 1;
+.switch__input:checked:before {
+	background-color: hsl(220,90%,40%);
 }
 
+.switch__input:checked:after {
+	background-color: hsl(0,0%,0%);
+	transform: translateX(1.5em);
+}
 
+.switch__input:checked ~ .switch__icon--light,
+.switch__input:checked ~ .switch__icon--light polyline {
+	transition-delay: 0s;
+	transition-timing-function: var(--trans-timing-in);
+}
+
+.switch__input:checked ~ .switch__icon--light {
+	opacity: 0;
+	transform: translateX(-0.75em) rotate(-30deg) scale(0.75);
+}
+
+.switch__input:checked ~ .switch__icon--light polyline {
+	stroke-dashoffset: 1.5;
+}
+
+.switch__input:checked ~ .switch__icon--dark {
+	opacity: 1;
+	transform: translateX(-1.5em);
+	transition-delay: calc(var(--trans-dur) / 2);
+	transition-timing-function: var(--trans-timing-out);
+}
+
+.switch__sr {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+}
