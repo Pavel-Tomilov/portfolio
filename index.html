@@ -23,10 +23,7 @@
         })();
       </script>
 </head>
-
 <body>
-   
-
 <label class="switch">
     <input class="switch__input" type="checkbox" role="switch">
     <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
@@ -73,18 +70,82 @@
                 реальных проектах.</p>
         </div>
     </section>
+
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="projects__title">Проекты</h2>
-            <ul class="cards">
+              <div class="container__card">
+                 <article>
+                    <div class="card">
+                      <div class="face face1">
+                      <div class="content">
+                        <img src="/images/blanchard.jpg" alt="Blanchard" class="card__icon">
+                      </div>
+                    </div>
+                    <div class="face face2">
+                      <div class="content">
+                        <p>Разработал адаптивный сайт для художественной галереи с
+                            использованием HTML, CSS.</p>
+                        <a class="link" target="_blank" href="https://pavel-tomilov.github.io/final-weblayout/" class="card__title">«Blanchard»</a>
+                      </div>
+                    </div>
+                    </div>
+                 </article>
+               <article>
+                  <div class="card">
+                    <div class="face face1">
+                    <div class="content">
+                      <img src="/images/skillbox.jpg" alt="Skillbox" class="card__icon">
+                    </div>
+                  </div>
+                  <div class="face face2">
+                    <div class="content">
+                      <p>Создал одностраничный сайт использую css-grid.</p>
+                      <a class="link" target="_blank" href="https://pavel-tomilov.github.io/skillbox/" class="more-link">«Skillbox»</a>
+                    </div>
+                  </div>
+                  </div>
+               </article>
+               <article>
+                    <div class="card">
+                    <div class="face face1">
+                    <div class="content">
+                      <img class="card__icon" src="/images/high-pass.jpg" alt="HIGH PASS">
+                    </div>
+                  </div>
+                  <div class="face face2">
+                    <div class="content">
+                      <p>Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.</p>
+                      <a class="link" target="_blank" href="https://pavel-tomilov.github.io/high-pass/" class="more-link">«HIGH PASS»</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article>
+                <div class="card">
+                <div class="face face1">
+                <div class="content">
+                  <img class="card__icon" src="/images/evklid.jpg" alt="EVKLID">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p>Создал адаптивный, кроссбраузерный сайт, с возможностью пользоваться с клавиатуры и с помощью скринридера .</p>
+                  <a class="link" target="_blank" href="https://pavel-tomilov.github.io/evklid/" class="more-link">«EVKLID»</a>
+                </div>
+              </div>
+            </div>
+          </article>
+              </div>
+            <!-- <ul class="cards">
                 <li class="cards__item">
                     <article class="card">
                         <a class="card__link" href="https://pavel-tomilov.github.io/final-weblayout/" target="_blank">
                             <div class="card__image"><img
-                                    src="images/birmingham-museums-trust-MK_98NuC4-4-unsplash 2.jpg" alt="">
+                                    src="/images/birmingham-museums-trust-MK_98NuC4-4-unsplash 2.jpg" alt="">
                             </div>
                             <div class="card__content">
-                                <h3 class="card__title">Одностраничный сайт «Blanchard — художественная галерея»</h3>
+                                <h3 class="card__title">«Blanchard»</h3>
                                 <p class="card__descr">Разработал адаптивный сайт для художественной галереи с
                                     использованием HTML, CSS.</p>
                             </div>
@@ -93,18 +154,38 @@
                 </li>
                 <li class="cards__item">
                     <article class="card">
-                        <a class="card__link" href="https://pavel-tomilov.github.io/skillbox/" target="_blank">
-                            <div class="card__image"><img src="images/14-11-2024 184351.jpg" alt=""></div>
+
+                        
+                      <div class="face face1">
+                        <div class="card__image"><img src="/images/14-11-2024 184351.jpg" alt=""></div>
+                            <a class="card__link" href="https://pavel-tomilov.github.io/skillbox/" target="_blank">
+                                <h3 class="card__title">«Skillbox»</h3>
+                            </a>
+                            
                             <div class="card__content">
-                                <h3 class="card__title">Scillbox</h3>
+                               
                                 <p class="card__descr">Создал одностраничный сайт использую css-grid.</p>
+                            </div>
+                      </div>
+                    </article>
+                </li>
+                <li class="cards__item">
+                    <article class="card">
+                        <a class="card__link" href="https://pavel-tomilov.github.io/high-pass/" target="_blank">
+                            <div class="card__image"><img
+                                    src="/images/high-pass.jpg" alt="">
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">«HIGH PASS»</h3>
+                                <p class="card__descr">Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.</p>
                             </div>
                         </a>
                     </article>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </section>
+
     <section id="skills">
         <h2>Ключевые навыки</h2>
         <div class="container skills__container">
@@ -128,9 +209,9 @@
     <section id="contact">
         <div class="container">
             <h2>Контакты</h2>
-            <p>Email: <a href="mailto:pasha.tomiloff@yandex.ru">pasha.tomiloff@yandex.ru</a></p>
+            <p>Email: <a class="link" href="mailto:pasha.tomiloff@yandex.ru">pasha.tomiloff@yandex.ru</a></p>
             <p>Телефон: +7 (981) 965-5907</p>
-            <p>GitHub: <a href="https://github.com/Pavel-Tomilov" target="_blank">github.com/Pavel-Tomilov</a></p>
+            <p>GitHub: <a class="link" href="https://github.com/Pavel-Tomilov" target="_blank">github.com/Pavel-Tomilov</a></p>
         </div>
     </section>
 
