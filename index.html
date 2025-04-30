@@ -2,29 +2,32 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Павел Томилов | Frontend Developer</title>
-    <link rel="stylesheet" href="styles.css/normalize.css">
-    <link rel="stylesheet" href="styles.css/style.css">
-    <link rel="stylesheet" href="styles.css/night.css">
-    <script defer src="script.js"></script>
-    <script>
-        // Применяем тему ДО загрузки DOM
-        (function() {
-          const savedTheme = localStorage.getItem('theme');
-          const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          
-          if (savedTheme) {
-            document.documentElement.classList.toggle('dark-theme', savedTheme === 'dark');
-          } else {
-            document.documentElement.classList.toggle('dark-theme', systemPrefersDark);
-          }
-        })();
-      </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Developer</title>
+  <link rel="icon" type="images/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles.css/normalize.css">
+  <link rel="stylesheet" href="styles.css/style.css">
+  <link rel="stylesheet" href="styles.css/night.css">
+  <script defer src="script.js"></script>
+  <script>
+    // Применяем тему ДО загрузки DOM
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme) {
+        document.documentElement.classList.toggle('dark-theme', savedTheme === 'dark');
+      } else {
+        document.documentElement.classList.toggle('dark-theme', systemPrefersDark);
+      }
+    })();
+  </script>
 </head>
+
 <body>
-<label class="switch">
+  <label class="switch">
     <input class="switch__input" type="checkbox" role="switch">
     <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
       <g fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round">
@@ -43,184 +46,140 @@
     </svg>
     <svg class="switch__icon switch__icon--dark" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
       <g fill="none" stroke="#fff" stroke-width="1" stroke-linejoin="round" transform="rotate(-45,6,6)">
-        <path d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z"/>
-      </g>	
+        <path
+          d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z" />
+      </g>
     </svg>
     <span class="switch__sr">Dark Mode</span>
   </label>
-    <header>
-        <div class="container">
-            <h1>Павел Томилов</h1>
-            <p>Frontend Developer</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">Обо мне</a></li>
-                    <li><a href="#projects">Проекты</a></li>
-                    <li><a href="#skills">Ключевые навыки</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section id="about">
-        <div class="container">
-            <h2>Обо мне</h2>
-            <p>Я фронтенд-разработчик, специализируюсь на создании адаптивных и кросс-браузерных веб-сайтов с
-                использованием HTML, CSS и JavaScript. Быстро учусь и стремлюсь улучшить свои навыки, участвуя в
-                реальных проектах.</p>
-        </div>
-    </section>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="nav__logo">Frontend Developer</div>
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link link-reset" href="#about">Обо мне</a></li>
+          <li class="nav__item"><a class="nav__link link-reset" href="#projects">Проекты</a></li>
+          <li class="nav__item"><a class="nav__link link-reset" href="#skills">Ключевые навыки</a></li>
+          <li class="nav__item"><a class="nav__link link-reset" href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="about">
+    <div class="container">
+      <h2>Обо мне</h2>
+     <div class="about__container">
+        <p class="about__name">Привет! Я — Павел Томилов, фронтенд-разработчик.</p>
+        <p class="about__spec">Специализируюсь на создании адаптивных и кросс-браузерных веб-сайтов с
+          использованием HTML, CSS и JavaScript. Верстаю так, чтобы сайты были доступны даже на древних смартфонах.
+        </p>
+         <p class="about__descr">Хотите обсудить проект?</p> 
+         <a class="about__link">Напишите мне!</a>
+     </div>
+    </div>
+  </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="projects__title">Проекты</h2>
-              <div class="container__card">
-                 <article>
-                    <div class="card">
-                      <div class="face face1">
-                      <div class="content">
-                        <img src="./images/blanchard.jpg" alt="Blanchard" class="card__icon">
-                      </div>
-                    </div>
-                    <div class="face face2">
-                      <div class="content">
-                        <p class="content__descr">Разработал адаптивный сайт для художественной галереи с
-                            использованием HTML, CSS.</p>
-                        <a class="link" target="_blank" href="https://pavel-tomilov.github.io/final-weblayout/" class="card__title">«Blanchard»</a>
-                      </div>
-                    </div>
-                    </div>
-                 </article>
-               <article>
-                  <div class="card">
-                    <div class="face face1">
-                    <div class="content">
-                      <img src="./images/skillbox.jpg" alt="Skillbox" class="card__icon">
-                    </div>
-                  </div>
-                  <div class="face face2">
-                    <div class="content">
-                      <p class="content__descr">Создал одностраничный сайт использую css-grid.</p>
-                      <a class="link" target="_blank" href="https://pavel-tomilov.github.io/skillbox/" class="more-link">«Skillbox»</a>
-                    </div>
-                  </div>
-                  </div>
-               </article>
-               <article>
-                    <div class="card">
-                    <div class="face face1">
-                    <div class="content">
-                      <img class="card__icon" src="./images/high-pass.jpg" alt="HIGH PASS">
-                    </div>
-                  </div>
-                  <div class="face face2">
-                    <div class="content">
-                      <p class="content__descr">Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.</p>
-                      <a class="link" target="_blank" href="https://pavel-tomilov.github.io/high-pass/" class="more-link">«HIGH PASS»</a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <div class="card">
-                <div class="face face1">
-                <div class="content">
-                  <img class="card__icon" src="./images/evklid.jpg" alt="EVKLID">
-                </div>
-              </div>
-              <div class="face face2">
-                <div class="content">
-                  <p class="content__descr">Создал адаптивный, кроссбраузерный сайт, с возможностью пользоваться с клавиатуры и с помощью скринридера .</p>
-                  <a class="link" target="_blank" href="https://pavel-tomilov.github.io/evklid/" class="more-link">«EVKLID»</a>
-                </div>
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="projects__title">Проекты</h2>
+      <div class="container__card">
+        <article>
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <img src="./images/blanchard.jpg" alt="Blanchard" class="card__icon">
               </div>
             </div>
-          </article>
+            <div class="face face2">
+              <div class="content">
+                <p class="content__descr">Разработал адаптивный сайт для художественной галереи с
+                  использованием HTML, CSS.</p>
+                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/final-weblayout/"
+                  class="card__title">«Blanchard»</a>
               </div>
-            <!-- <ul class="cards">
-                <li class="cards__item">
-                    <article class="card">
-                        <a class="card__link" href="https://pavel-tomilov.github.io/final-weblayout/" target="_blank">
-                            <div class="card__image"><img
-                                    src="/images/birmingham-museums-trust-MK_98NuC4-4-unsplash 2.jpg" alt="">
-                            </div>
-                            <div class="card__content">
-                                <h3 class="card__title">«Blanchard»</h3>
-                                <p class="card__descr">Разработал адаптивный сайт для художественной галереи с
-                                    использованием HTML, CSS.</p>
-                            </div>
-                        </a>
-                    </article>
-                </li>
-                <li class="cards__item">
-                    <article class="card">
-
-                        
-                      <div class="face face1">
-                        <div class="card__image"><img src="/images/14-11-2024 184351.jpg" alt=""></div>
-                            <a class="card__link" href="https://pavel-tomilov.github.io/skillbox/" target="_blank">
-                                <h3 class="card__title">«Skillbox»</h3>
-                            </a>
-                            
-                            <div class="card__content">
-                               
-                                <p class="card__descr">Создал одностраничный сайт использую css-grid.</p>
-                            </div>
-                      </div>
-                    </article>
-                </li>
-                <li class="cards__item">
-                    <article class="card">
-                        <a class="card__link" href="https://pavel-tomilov.github.io/high-pass/" target="_blank">
-                            <div class="card__image"><img
-                                    src="/images/high-pass.jpg" alt="">
-                            </div>
-                            <div class="card__content">
-                                <h3 class="card__title">«HIGH PASS»</h3>
-                                <p class="card__descr">Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.</p>
-                            </div>
-                        </a>
-                    </article>
-                </li>
-            </ul> -->
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Ключевые навыки</h2>
-        <div class="container skills__container">
-           
-            <ul class="list-reset list__skills">
-                <li>&bull; HTML5&nbsp;&mdash; Семантическая разметка, структура страниц, основы SEO.</li>
-                <li>&bull; CSS3&nbsp;&mdash; Flexbox, Grid, анимации, медиазапросы для адаптивной верстки.</li>
-                <li>&bull; JavaScript (ES6)&nbsp;&mdash; Основы программирования, DOM-манипуляции, интерактивные
-                    элементы.</li>
-                <li>&bull; Git&nbsp;&mdash; Контроль версий, работа с&nbsp;GitHub, создание pull-реквестов.</li>
-                <li>&bull; Адаптивная верстка (Flexbox, Grid)</li>
-                <li>&bull; БЭМ&nbsp;&mdash; Методология наименования классов для чистой и&nbsp;поддерживаемой разметки.
-                </li>
-                <li>&bull; Sass/SCSS&nbsp;&mdash; Использование препроцессоров для упрощения работы с&nbsp;CSS.</li>
-                <li>&bull; Адаптивная верстка&nbsp;&mdash; Создание сайтов, которые корректно отображаются
-                    на&nbsp;мобильных и&nbsp;десктопных устройствах.</li>
-                <li>&bull; Работа с макетами Figma</li>
-            </ul>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="container">
-            <h2>Контакты</h2>
-            <p>Email: <a class="link" href="mailto:pasha.tomiloff@yandex.ru">pasha.tomiloff@yandex.ru</a></p>
-            <p>Телефон: +7 (981) 965-5907</p>
-            <p>GitHub: <a class="link" href="https://github.com/Pavel-Tomilov" target="_blank">github.com/Pavel-Tomilov</a></p>
-        </div>
-    </section>
-
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Павел Томилов. Все права защищены.</p>
-        </div>
-    </footer>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <img src="./images/skillbox.jpg" alt="Skillbox" class="card__icon">
+              </div>
+            </div>
+            <div class="face face2">
+              <div class="content">
+                <p class="content__descr">Создал одностраничный сайт использую css-grid.</p>
+                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/skillbox/"
+                  class="more-link">«Skillbox»</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <img class="card__icon" src="./images/high-pass.jpg" alt="HIGH PASS">
+              </div>
+            </div>
+            <div class="face face2">
+              <div class="content">
+                <p class="content__descr">Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.
+                </p>
+                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/high-pass/"
+                  class="more-link">«HIGH PASS»</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <img class="card__icon" src="./images/evklid.jpg" alt="EVKLID">
+              </div>
+            </div>
+            <div class="face face2">
+              <div class="content">
+                <p class="content__descr">Создал адаптивный, кроссбраузерный сайт, с возможностью пользоваться с
+                  клавиатуры и с помощью скринридера .</p>
+                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/evklid/"
+                  class="more-link">«EVKLID»</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="skills">
+    <h2>Ключевые навыки</h2>
+    <div class="container skills__container">
+      <ul class="list-reset list__skills">
+        <li>&bull; HTML5&nbsp;&mdash; Семантическая разметка, структура страниц, основы SEO.</li>
+        <li>&bull; CSS3&nbsp;&mdash; Flexbox, Grid, анимации, медиазапросы для адаптивной верстки.</li>
+        <li>&bull; JavaScript (ES6)&nbsp;&mdash; Основы программирования, DOM-манипуляции, интерактивные
+          элементы.</li>
+        <li>&bull; Git&nbsp;&mdash; Контроль версий, работа с&nbsp;GitHub, создание pull-реквестов.</li>
+        <li>&bull; Адаптивная верстка (Flexbox, Grid)</li>
+        <li>&bull; БЭМ&nbsp;&mdash; Методология наименования классов для чистой и&nbsp;поддерживаемой разметки.
+        </li>
+        <li>&bull; Sass/SCSS&nbsp;&mdash; Использование препроцессоров для упрощения работы с&nbsp;CSS.</li>
+        <li>&bull; Адаптивная верстка&nbsp;&mdash; Создание сайтов, которые корректно отображаются
+          на&nbsp;мобильных и&nbsp;десктопных устройствах.</li>
+        <li>&bull; Работа с макетами Figma</li>
+      </ul>
+    </div>
+  </section>
 </body>
+<footer id="contact">
+  <div class="container">
+    <h2>Контакты</h2>
+    <p>Email: <a class="link" href="mailto:pasha.tomiloff@yandex.ru">pasha.tomiloff@yandex.ru</a></p>
+    <p>Телефон: +7 (981) 965-5907</p>
+    <p>GitHub: <a class="link" href="https://github.com/Pavel-Tomilov" target="_blank">github.com/Pavel-Tomilov</a></p>
+  </div>
+</footer>
 
 </html>
