@@ -27,6 +27,8 @@
 </head>
 
 <body>
+
+
   <label class="switch">
     <input class="switch__input" type="checkbox" role="switch">
     <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
@@ -53,9 +55,21 @@
     <span class="switch__sr">Dark Mode</span>
   </label>
   <header>
-    <div class="container">
+    <div class="container header__container">
+      <div class="nav__logo">Frontend Developer</div>
+      <!-- Бургер-иконка -->
+      <div class="burger-container">
+        <div class="burger-menu">
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+        </div>
+      </div>
+
+      <!-- Затемнение фона -->
+      <div class="overlay"></div>
+
       <nav class="nav">
-        <div class="nav__logo">Frontend Developer</div>
         <ul class="nav__list">
           <li class="nav__item"><a class="nav__link link-reset" href="#about">Обо мне</a></li>
           <li class="nav__item"><a class="nav__link link-reset" href="#projects">Проекты</a></li>
@@ -68,14 +82,41 @@
   <section id="about">
     <div class="container">
       <h2>Обо мне</h2>
-     <div class="about__container">
+      <div class="about__container">
         <p class="about__name">Привет! Я — Павел Томилов, фронтенд-разработчик.</p>
         <p class="about__spec">Специализируюсь на создании адаптивных и кросс-браузерных веб-сайтов с
           использованием HTML, CSS и JavaScript. Верстаю так, чтобы сайты были доступны даже на древних смартфонах.
         </p>
-         <p class="about__descr">Хотите обсудить проект?</p> 
-         <a class="about__link">Напишите мне!</a>
-     </div>
+        <p class="about__descr">Хотите обсудить проект?</p>
+        <button class="btn-reset about__button" id="btn">Напишите мне!</button>
+        <!-- Модальное окно (изначально скрыто) -->
+
+        <div class="modal" id="modal">
+
+          <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <form class="form" action="#">
+              <h2>Можете задать ваш вопрос</h2>
+              <div class="input-group">
+                <input type="text" class="input-field" id="name" placeholder=" ">
+                <label for="name" class="input-label">Имя</label>
+              </div>
+              <div class="input-group">
+                <input type="email" class="input-field" id="email" placeholder=" ">
+                <label for="email" class="input-label">Email</label>
+              </div>
+
+              <div class="input-group">
+                <textarea class="input-field" name="text" id="text" required type="text" placeholder=" "></textarea>
+                <label for="text" class="input-label">Ваш вопрос</label>
+              </div>
+              <button class="btn-reset button" name="submit" type="submit">Отправить</button>
+              <p class="form_notice">Ваши данные конфиденциальны</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -84,71 +125,75 @@
       <h2 class="projects__title">Проекты</h2>
       <div class="container__card">
         <article>
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img src="./images/blanchard.jpg" alt="Blanchard" class="card__icon">
+          <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/final-weblayout/">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./images/blanchard.jpg" alt="Blanchard" class="card__icon">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p class="content__descr">Разработал адаптивный сайт для художественной галереи с
+                    использованием HTML, CSS.</p>
+                  <h3 class="card-title">«Blanchard»</h3>
+                </div>
               </div>
             </div>
-            <div class="face face2">
-              <div class="content">
-                <p class="content__descr">Разработал адаптивный сайт для художественной галереи с
-                  использованием HTML, CSS.</p>
-                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/final-weblayout/"
-                  class="card__title">«Blanchard»</a>
-              </div>
-            </div>
-          </div>
+          </a>
         </article>
         <article>
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img src="./images/skillbox.jpg" alt="Skillbox" class="card__icon">
+          <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/skillbox/">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./images/skillbox.jpg" alt="Skillbox" class="card__icon">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p class="content__descr">Создал одностраничный сайт использую css-grid.</p>
+                  <h3 class="card-title">«Skillbox»</h3>
+                </div>
               </div>
             </div>
-            <div class="face face2">
-              <div class="content">
-                <p class="content__descr">Создал одностраничный сайт использую css-grid.</p>
-                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/skillbox/"
-                  class="more-link">«Skillbox»</a>
-              </div>
-            </div>
-          </div>
+          </a>
         </article>
         <article>
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img class="card__icon" src="./images/high-pass.jpg" alt="HIGH PASS">
+          <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/high-pass/">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img class="card__icon" src="./images/high-pass.jpg" alt="HIGH PASS">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p class="content__descr">Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.
+                  </p>
+                  <h3 class="card-title">«HIGH PASS»</h3>
+                </div>
               </div>
             </div>
-            <div class="face face2">
-              <div class="content">
-                <p class="content__descr">Разработал адаптивный сайт используя gulp-сборку, препроцессор SASS и Grid.
-                </p>
-                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/high-pass/"
-                  class="more-link">«HIGH PASS»</a>
-              </div>
-            </div>
-          </div>
+          </a>
         </article>
         <article>
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img class="card__icon" src="./images/evklid.jpg" alt="EVKLID">
+          <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/evklid/">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img class="card__icon" src="./images/evklid.jpg" alt="EVKLID">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p class="content__descr">Создал адаптивный, кроссбраузерный сайт, с возможностью пользоваться с
+                    клавиатуры и с помощью скринридера .</p>
+                  <h3 class="card-title">«EVKLID»</h3>
+                </div>
               </div>
             </div>
-            <div class="face face2">
-              <div class="content">
-                <p class="content__descr">Создал адаптивный, кроссбраузерный сайт, с возможностью пользоваться с
-                  клавиатуры и с помощью скринридера .</p>
-                <a class="link" target="_blank" href="https://pavel-tomilov.github.io/evklid/"
-                  class="more-link">«EVKLID»</a>
-              </div>
-            </div>
-          </div>
+          </a>
         </article>
       </div>
     </div>
