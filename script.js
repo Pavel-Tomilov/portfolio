@@ -159,8 +159,8 @@ function validateForm() {
 
 // Отправка в Telegram
 async function sendToTelegram(data) {
-  const botToken = "7470366788:AAGpg27fx00l2tnLLNR2Lo_jV_1hdA4z8Po";
-  const chatId = "941187160";
+  const botToken = "";
+  const chatId = "";
   const text = `📌 Новая заявка:\n\n👤 Имя: ${data.name}\n📧 Email: ${data.email}\n📝 Сообщение: ${data.message}`;
 
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
