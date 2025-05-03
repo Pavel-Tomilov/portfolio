@@ -7,7 +7,7 @@
 :root {
   --hue: 223;
   --card-color: #bfbfbf;
-  --link-color: #0066cc;
+  --link-color: #4da6ff;
   /* Цвет ссылки в светлой теме */
   --link-hover-color: #004499;
   /* Цвет при наведении в светлой теме */
@@ -34,7 +34,7 @@ body {
 .dark-theme {
   --fg: hsl(var(--hue), 10%, 90%);
   --bg: hsl(var(--hue), 10%, 10%);
-  --link-color: #4da6ff;
+  --link-color: #0066cc;
   /* Цвет ссылки в тёмной теме */
   --link-hover-color: #80bfff;
   /* Цвет при наведении в тёмной теме */
@@ -139,7 +139,15 @@ section {
 
 .about__button {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 15px 10px;
+  background-color: var(--link-color);
+  border-radius: 8px;
+  color: white;
+  transition: all .3s ease-in-out;
+}
+
+.about__button:hover {
+  background-color: var(--link-hover-color);
 }
 
 /* модальное окно */
@@ -169,17 +177,23 @@ section {
   width: 320px;
   /* Фиксированная ширина */
   background: var(--bg);
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   border-radius: 8px;
 
 }
 
+.form__title {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
 .modal__close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 7px;
+  right: 7px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 40px;
 }
 
 .input-group {
@@ -274,7 +288,7 @@ textarea {
   width: 100%;
   height: 100%;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 15px;
   z-index: 1000;
   justify-content: center;

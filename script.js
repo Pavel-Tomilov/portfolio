@@ -130,22 +130,26 @@ function validateForm() {
 
   if (nameInput.value.trim() === '') {
     nameError.textContent = "Пожалуйста, введите ваше имя";
+    nameError.style.color = "red";
     nameError.style.display = "block";
     isValid = false;
   }
 
   if (emailInput.value.trim() === '') {
     emailError.textContent = "Пожалуйста, введите email";
+    emailError.style.color = "red";
     emailError.style.display = "block";
     isValid = false;
   } else if (!validateEmail(emailInput.value.trim())) {
     emailError.textContent = "Введите корректный email";
+    emailError.style.color = "red";
     emailError.style.display = "block";
     isValid = false;
   }
 
   if (messageInput.value.trim() === '') {
     messageError.textContent = "Пожалуйста, напишите ваше сообщение";
+    messageError.style.color = "red";
     messageError.style.display = "block";
     isValid = false;
   }
@@ -155,13 +159,22 @@ function validateForm() {
 
 // Отправка в Telegram
 async function sendToTelegram(data) {
-  const url = `https://telegram-backend-production-9876.up.railway.app/send`;
+  const botToken = "7470366788:AAGpg27fx00l2tnLLNR2Lo_jV_1hdA4z8Po";
+  const chatId = "941187160";
+  const text = `📌 Новая заявка:\n\n👤 Имя: ${data.name}\n📧 Email: ${data.email}\n📝 Сообщение: ${data.message}`;
+
+  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+  const params = {
+    chat_id: chatId,
+    text: text,
+    parse_mode: "Markdown"
+  };
 
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data), // данные: { name, email, message }
+      body: JSON.stringify(params),
     });
     return response.ok;
   } catch (error) {
