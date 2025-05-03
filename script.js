@@ -101,3 +101,122 @@ modal.addEventListener('click', (e) => {
 });
 
 
+const form = document.getElementById('form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const messageError = document.getElementById('messageError');
+const successMsg = document.getElementById('success');
+const loading = document.getElementById('loading');
+const loadingText = loading.querySelector('.loading-text');
+const successMessage = loading.querySelector('.success-message');
+const loader = loading.querySelector('.loader');
+
+// Валидация email
+function validateEmail(email) {
+  const re = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/;
+  return re.test(email);
+}
+
+// Проверка формы
+function validateForm() {
+  let isValid = true;
+
+  nameError.style.display = "none";
+  emailError.style.display = "none";
+  messageError.style.display = "none";
+
+  if (nameInput.value.trim() === '') {
+    nameError.textContent = "Пожалуйста, введите ваше имя";
+    nameError.style.display = "block";
+    isValid = false;
+  }
+
+  if (emailInput.value.trim() === '') {
+    emailError.textContent = "Пожалуйста, введите email";
+    emailError.style.display = "block";
+    isValid = false;
+  } else if (!validateEmail(emailInput.value.trim())) {
+    emailError.textContent = "Введите корректный email";
+    emailError.style.display = "block";
+    isValid = false;
+  }
+
+  if (messageInput.value.trim() === '') {
+    messageError.textContent = "Пожалуйста, напишите ваше сообщение";
+    messageError.style.display = "block";
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+// Отправка в Telegram
+async function sendToTelegram(data) {
+  const url = `https://telegram-backend-production-9876.up.railway.app/send`;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data), // данные: { name, email, message }
+    });
+    return response.ok;
+  } catch (error) {
+    console.error("Ошибка отправки:", error);
+    return false;
+  }
+}
+
+// Обработка формы
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  if (!validateForm()) return;
+
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+
+  // Показываем окно загрузки
+  loading.style.display = "flex";
+  loader.style.display = "block";
+  loadingText.style.display = "block";
+  successMessage.style.display = "none";
+
+  const formData = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim()
+  };
+
+  try {
+    const isSent = await sendToTelegram(formData);
+
+    // Искусственная задержка 3 секунды
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    if (isSent) {
+      // Показываем сообщение об успехе вместо спиннера
+      loader.style.display = "none";
+      loadingText.style.display = "none";
+      successMessage.style.display = "block";
+      // Закрываем окно через 3 секунды
+      setTimeout(() => {
+        loading.style.display = "none";
+        form.reset();
+      }, 3000);
+    } else {
+      loading.style.display = "none";
+      alert("Ошибка отправки. Попробуйте позже.");
+    }
+  } catch (error) {
+    console.error("Ошибка:", error);
+    loading.style.display = "none";
+    alert("Произошла ошибка. Попробуйте ещё раз.");
+  } finally {
+    submitBtn.disabled = false;
+  }
+});

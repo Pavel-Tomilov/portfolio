@@ -95,24 +95,36 @@
 
           <div class="modal__content">
             <span class="modal__close">&times;</span>
-            <form class="form" action="#">
+            <form class="form__body" id="form">
               <h2>Можете задать ваш вопрос</h2>
               <div class="input-group">
-                <input type="text" class="input-field" id="name" placeholder=" ">
-                <label for="name" class="input-label">Имя</label>
+                <input type="text" class="input-field _req _email" id="name" placeholder=" ">
+                <label for="name" class="input-label required-field">Имя</label>
+                <div id="nameError" class="error"></div>
               </div>
               <div class="input-group">
-                <input type="email" class="input-field" id="email" placeholder=" ">
-                <label for="email" class="input-label">Email</label>
+                <input class="input-field _req _email" id="email" placeholder=" ">
+                <label for="email" class="input-label required-field">Email</label>
+                <div id="emailError" class="error"></div>
               </div>
-
               <div class="input-group">
-                <textarea class="input-field" name="text" id="text" required type="text" placeholder=" "></textarea>
-                <label for="text" class="input-label">Ваш вопрос</label>
+                <textarea class="input-field required-field" name="text" id="message" type="text"
+                  placeholder=" "></textarea>
+                <label for="message" class="input-label">Ваш вопрос</label>
+                <div id="messageError" class="error"></div>
               </div>
               <button class="btn-reset button" name="submit" type="submit">Отправить</button>
               <p class="form_notice">Ваши данные конфиденциальны</p>
             </form>
+            <div class="loading" id="loading">
+              <div class="loader"></div>
+              <div class="loading-text">Отправка данных...</div>
+              <div class="success-message">
+                ✅<br>
+                <p class="success-text">Сообщение успешно отправлено!</p>
+                <p class="success-text">Я свяжусь с вами в ближайшее время.</p>
+              </div>
+            </div>
           </div>
         </div>
 
