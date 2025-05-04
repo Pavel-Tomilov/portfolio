@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+
+body {
+    min-width: 320px;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
+    transition:
+        background-color var(--trans-dur),
+        color var(--trans-dur);
+}
+
+.dark-theme {
+    --fg: hsl(var(--hue), 10%, 90%);
+    --bg: hsl(var(--hue), 10%, 10%);
+    --link-color: #0066cc;
+    /* Цвет ссылки в тёмной теме */
+    --link-hover-color: #80bfff;
+    /* Цвет при наведении в тёмной теме */
+    --card-color: #333;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn-reset {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.list-reset {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1470px;
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.js-focus-visible focus:not(.focus-visible) {
+    outline: none;
+}
