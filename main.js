@@ -159,37 +159,63 @@ function validateForm() {
 }
 
 // Отправка в Telegram
-async function sendToTelegram(data) {
-  const botToken = "7470366788:AAGpg27fx00l2tnLLNR2Lo_jV_1hdA4z8Po";
-  const chatId = "941187160";
-  const text = `📌 Новая заявка:\n\n👤 Имя: ${data.name}\n📧 Email: ${data.email}\n📝 Сообщение: ${data.message}`;
+// async function sendToTelegram(data) {
+//   const botToken = "7470366788:AAGpg27fx00l2tnLLNR2Lo_jV_1hdA4z8Po";
+//   const chatId = "941187160";
+//   const text = `📌 Новая заявка:\n\n👤 Имя: ${data.name}\n📧 Email: ${data.email}\n📝 Сообщение: ${data.message}`;
 
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  const params = {
-    chat_id: chatId,
-    text: text,
-    parse_mode: "Markdown"
-  };
+//   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+//   const params = {
+//     chat_id: chatId,
+//     text: text,
+//     parse_mode: "Markdown"
+//   };
 
+//   try {
+//     const response = await fetch(url, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(params),
+//     });
+//     return response.ok;
+//   } catch (error) {
+//     console.error("Ошибка отправки:", error);
+//     return false;
+//   }
+// }
+
+
+
+async function sendToEmail(data) {
   try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(params),
+    const response = await fetch('https://formspree.io/f/mjkwodgq', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin // Автоматически подставит текущий домен
+      },
+      mode: 'cors', // Явно указываем режим CORS
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        _replyto: data.email,
+        _gotcha: '' // Анти-спам поле (должно быть пустым)
+      })
     });
-    return response.ok;
+
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return true;
   } catch (error) {
-    console.error("Ошибка отправки:", error);
+    console.error("Ошибка:", error);
     return false;
   }
 }
 
-// Обработка формы
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-
   if (!validateForm()) return;
-
 
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
@@ -207,16 +233,17 @@ form.addEventListener('submit', async (e) => {
   };
 
   try {
-    const isSent = await sendToTelegram(formData);
+    const isSent = await sendToEmail(formData);
 
-    // Искусственная задержка 3 секунды
+    // Искусственная задержка 3 секунды (если нужно)
     await new Promise(resolve => setTimeout(resolve, 3000));
 
     if (isSent) {
-      // Показываем сообщение об успехе вместо спиннера
+      // Показываем сообщение об успехе
       loader.style.display = "none";
       loadingText.style.display = "none";
       successMessage.style.display = "block";
+
       // Закрываем окно через 3 секунды
       setTimeout(() => {
         loading.style.display = "none";
