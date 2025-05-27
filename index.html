@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frontend Developer</title>
   <link rel="shortcut icon" href="images/favicon.ico" />
-  <link rel="stylesheet" href="./style/normalize.css">
-  <link rel="stylesheet" href="./style/style.css">
-  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" defer src="js/main.js"></script>
   <script>
     // Применяем тему ДО загрузки DOM
     (function () {
@@ -81,15 +81,16 @@
     <div class="container">
       <h2>Обо мне</h2>
       <div class="about__container">
-        <p class="about__name">Привет! Я — Павел Томилов, фронтенд-разработчик.</p>
+        <p class="about__name">Привет!</p>
+        <p class="about__name">Я — Павел Томилов, фронтенд-разработчик.</p>
         <p class="about__spec">Специализируюсь на создании адаптивных и кросс-браузерных веб-сайтов с
           использованием HTML, CSS и JavaScript. Верстаю так, чтобы сайты были доступны даже на древних смартфонах.
         </p>
-        <p class="about__descr">Хотите обсудить проект?</p>
-        <button class="btn-reset about__button" id="btn">Напишите мне!</button>
+        <!-- <p class="about__descr">Хотите обсудить проект?</p>
+        <button class="btn-reset about__button" id="btn">Напишите мне!</button> -->
         <!-- Модальное окно (изначально скрыто) -->
 
-        <div class="modal" id="modal">
+        <!-- <div class="modal" id="modal">
 
           <div class="modal__content">
             <span class="modal__close">&times;</span>
@@ -124,7 +125,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -134,6 +135,41 @@
     <div class="container">
       <h2 class="projects__title">Проекты</h2>
       <div class="container__card">
+        <article>
+          <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/vk-marusia/">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./images/marusia.jpg" alt="VK Маруся" class="card__icon">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p class="content__descr">Разработал онлайн-платформу «VK Маруся», которая позволяет пользователям
+                    находить и оценивать фильмы</p>
+                  <h3 class="card-title">«VK Маруся»</h3>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article>
+          <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/table-student/">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./images/table-student.jpg" alt="Blanchard" class="card__icon">
+                </div>
+              </div>
+              <div class="face face2">
+                <div class="content">
+                  <p class="content__descr">Создал панель управления студентами на чистом JS</p>
+                  <h3 class="card-title">«Student table»</h3>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
         <article>
           <a class="link-reset" target="_blank" href="https://pavel-tomilov.github.io/final-weblayout/">
             <div class="card">
