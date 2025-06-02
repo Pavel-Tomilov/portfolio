@@ -486,6 +486,19 @@ footer p {
   margin: 0;
 }
 
+.contact__social {
+  display: inline-block;
+}
+
+.contact__icons-svg path[fill="color-top"] {
+  fill: #1E88E5;
+  transition: fill .3s ease-in-out;
+}
+
+.contact__icons-svg:hover path[fill="color-top"] {
+  fill: #094c86;
+}
+
 /* toggle */
 
 .switch {
