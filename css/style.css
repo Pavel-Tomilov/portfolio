@@ -123,6 +123,11 @@ header h1 {
   border-radius: 30px;
 }
 
+.nav__link:active {
+  background-color: #094c86;
+  border-radius: 30px;
+}
+
 .container {
   max-width: 1170px;
   padding: 0 15px;
@@ -496,6 +501,10 @@ footer p {
 }
 
 .contact__icons-svg:hover path[fill="color-top"] {
+  fill: #505459;
+}
+
+.contact__icons-svg:active path[fill="color-top"] {
   fill: #094c86;
 }
 
@@ -663,9 +672,6 @@ footer p {
 /* Мобильные стили */
 
 @media(max-width: 768px) {
-
-
-
   .face1,
   .face {
     transform: translateY(0);
